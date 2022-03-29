@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .textbox {
+                background-color: lightgreen;
+                border: solid darkgreen 5px;
+                width: 40%;
+                text-align: center;
+                padding: 50pt 50pt;
+                font-size: 30pt;
+                font-family: sans-serif;
+                border-radius: 15px;
+                position: absolute;
+                top: 100px;
+                left: 100px;
+
+                animation: skew 3s infinite;
+            }
+            @keyframes skew {
+                0% {
+                    transform: skewX(0deg);
+                }
+                25% {
+                    transform: skewX(-45deg);
+                }
+                50% {
+                    transform: skewX(0deg);
+                }
+                75% {
+                    transform: skewX(45deg);
+                }
+                100% {
+                    transform: skewX(0deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="textbox">
+            안녕 유진!! 컴퓨터 시간에 배운 걸 가지고 종합해서 만들어본 건데 이렇게 결과물 보니까 진짜 시시하닼ㅋㅋㅋㅋ 선물이라 생각해줘,, :~D
+        </div>
+    </body>
+</html>
