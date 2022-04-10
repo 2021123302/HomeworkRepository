@@ -11,7 +11,9 @@ body {
 #header-text {
     font-size: 30pt;
     font-family: avenir, helvetica, sans-serif;
-    animation: header-animation 2s ease-out;
+    animation: ease-out;
+    animation-name: header-animation;
+    animation-duration: 2s;
 }
 
 main {
