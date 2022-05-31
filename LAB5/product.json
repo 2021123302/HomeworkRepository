@@ -1,0 +1,30 @@
+[
+    {
+        "item-header": "The Romantic Absolute",
+        "iten-sub-header": "Nassar, Dalia",
+        "img": "item1.jpg",
+        "price": "KRW 20,000",
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+    },
+    {
+        "item-header": "The Symposium",
+        "iten-sub-header": "Plato",
+        "img": "item2.jpg",
+        "price": "KRW 30,000",
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+    },
+    {
+        "item-header": "Man and His Symbols",
+        "iten-sub-header": "Jung, Carl",
+        "img": "item3.jpg",
+        "price": "KRW 25,000",
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+    },
+    {
+        "item-header": "Beyond Good and Evil",
+        "iten-sub-header": "Nietzsche, Freidrich",
+        "img": "item4.jpg",
+        "price": "KRW 35,000",
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+    }
+]
