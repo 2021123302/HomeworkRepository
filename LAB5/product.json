@@ -4,83 +4,95 @@
         "itemSubHeader": "Nassar, Dalia",
         "img": "item1.jpg",
         "price": "KRW 20,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Philosophy"
     },
     {
         "itemHeader": "The Symposium",
         "itemSubHeader": "Plato",
         "img": "item2.jpg",
         "price": "KRW 30,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Philosophy"
     },
     {
         "itemHeader": "Man and His Symbols",
         "itemSubHeader": "Jung, Carl",
         "img": "item3.jpg",
         "price": "KRW 25,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Psychology"
     },
     {
         "itemHeader": "Beyond Good and Evil",
         "itemSubHeader": "Nietzsche, Freidrich",
         "img": "item4.jpg",
         "price": "KRW 35,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Literature"
     },
     {
         "itemHeader": "The World as Will and Representation",
         "itemSubHeader": "Schopenhauer, Arthur",
         "img": "item5.jpg",
         "price": "KRW 40,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Philosophy"
     },
     {
         "itemHeader": "Being and Time",
         "itemSubHeader": "Heidegger, Martin",
         "img": "item6.jpg",
         "price": "KRW 41,500",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Philosophy"
     },
     {
         "itemHeader": "Heinrich von Ofterdingen",
         "itemSubHeader": "Novalis",
         "img": "item7.jpg",
         "price": "KRW 23,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Literature"
     },
     {
         "itemHeader": "The Critique of Pure Reason",
         "itemSubHeader": "Kant, Emmanuel",
         "img": "item8.jpg",
         "price": "KRW 35,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Philosophy"
     },
     {
         "itemHeader": "Phenomenology of Spirit",
         "itemSubHeader": "Hegel, Georg Wilhelm Friedrich",
         "img": "item9.jpg",
         "price": "KRW 50,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Philosophy"
     },
     {
         "itemHeader": "Mourning and Melancholia",
         "itemSubHeader": "Freud, Sigmund",
         "img": "item10.jpg",
         "price": "KRW 20,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Psychology"
     },
     {
         "itemHeader": "Thus Spoke Zarathustra",
         "itemSubHeader": "Nietzsche, Friedrich",
         "img": "item11.jpg",
         "price": "KRW 40,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Literature"
     },
     {
         "itemHeader": "Crime and Punishment",
         "itemSubHeader": "Dostoevsky, Fyodor",
         "img": "item12.jpg",
         "price": "KRW 50,000",
-        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo."
+        "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo.",
+        "category": "Literature"
     }
 ]

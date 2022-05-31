@@ -98,7 +98,7 @@ main {
     align-items: center;
 }
 
-.item-header {
+.item_header {
     width: 100%;
     text-align: center;
     font-family: avenir, Arial, Helvetica, sans-serif;

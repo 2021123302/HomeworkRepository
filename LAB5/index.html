@@ -5,6 +5,58 @@
         <title>Main Page</title>
         <link rel="stylesheet" href="main.css">
     </head>
+    <script>
+        // loadProduct: count를 넘겨주면 count번째 product의 section을 load해줌.
+        function loadProduct(count) {
+            fetch('https://2021123302.github.io/HomeworkRepository/LAB5/product.json')
+            .then(response => response.json())
+            .then(products => {
+                const obj = products[count];
+                const newSection = document.createElement('section');
+                newSection.className = "item-box";
+                newSection.innerHTML = createSectionHTML(obj);
+                newSection.addEventListener("click", function() {
+                    // window.alert(obj.details);
+                    newSection.append(obj.details);
+                    newSection.append("\nPrice: " + obj.price);
+                })
+                document.querySelector("#item-boxes").append(newSection);
+            })
+        };
+        // 배운 점: event handler에는 parameter 넘겨줄 필요 없이 그냥 parent parameter 갖다 쓰면 됨.
+
+        // createSectionHTML: product obj를 넘겨주면 그 section의 HTML 코드를 제작해 리턴함.
+        // loadProduct 함수에서 필요로 함.
+        function createSectionHTML(obj) {
+            var result =
+            `<div class="item_header">${obj.itemHeader}</div>
+            <div class="item-sub-header">By ${obj.itemSubHeader}</div>
+            <div class="item-sub-header">${obj.category}</div>
+            <img src="${obj.img}" alt="${obj.itemSubHeader} '${obj.itemHeader}'">`;
+            return result;
+        };
+
+        var count = 0;
+        window.onscroll = () => {
+            if(window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                loadProduct(count);
+                count++;
+                loadProduct(count);
+                count++;
+            }
+        }
+
+        function queryFilter() {
+            const target = document.getElementById("search-keyword").value;
+            var boxes = document.getElementsByClassName("item-box");
+            for(let i = 0; i < boxes.length; i++) {
+                var query = boxes[i].getElementsByClassName("item_header")[0].innerHTML.toLowerCase();
+                if(query.indexOf(target) === -1){
+                    boxes[i].style.display = "none";
+                }
+            }
+        };
+    </script>
     <body>
         <header> <!-- Header text; ID: header-text-->
             <div id="header-text">2021123302 Online Shop</div>
@@ -14,35 +66,35 @@
             <a href="signup.html">Sign Up</a>
         </nav>
         <main>
-            <div id="item-sections">
-                <h1 class="sections-header">Items</h1>
-                <div id="item-boxes">
-                    <section class="item-box">
-                        <div class="item-header">'The Romantic Absolute'</div>
-                        <div class="item-sub-header">By Nassar, Dalia</div>
-                        <img src="item1.jpg" alt="Nassar, Dalia 'The Romantic Absolute'" id="hover-rotate">
-                    </section>
-                    <section class="item-box">
-                        <!-- <div class="item-header">'The Symposium'</div>
-                        <div class="item-sub-header">By Plato</div> -->
-                        <img src="item2.jpg" alt="Plato 'The Symposium'" id="hover-expand">
-                    </section>
-                    <section class="item-box">
-                        <!-- <div class="item-header">'The Symposium'</div>
-                        <div class="item-sub-header">By Plato</div> -->
-                        <img src="item2.jpg" alt="Plato 'The Symposium'" id="hover-expand">
-                    </section>
-                    <section class="item-box">
-                        <!-- <div class="item-header">'The Symposium'</div>
-                        <div class="item-sub-header">By Plato</div> -->
-                        <img src="item2.jpg" alt="Plato 'The Symposium'" id="hover-expand">
-                    </section>
-                </div>
-            </div>
             <div id="intro-sections">
                 <h1 class="sections-header">Introduction</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo. Integer convallis rutrum luctus. Nam lacinia ante sit amet pharetra pretium. Donec eu tempor orci. Cras imperdiet venenatis turpis, in facilisis lorem viverra sed. Quisque id sem viverra, fringilla tellus vel, placerat quam. Suspendisse risus lectus, semper non magna at, gravida viverra lorem. Integer in lacinia tortor. Aliquam tempus sollicitudin metus, at faucibus lorem condimentum a. Integer leo urna, molestie id convallis id, faucibus sed est. Proin dapibus, erat sed eleifend ultricies, enim est aliquam sapien, in tincidunt dui ipsum eget odio. Pellentesque varius tellus sed lobortis eleifend. In hac habitasse platea dictumst. Proin a justo luctus, mattis tortor eget, efficitur nisi. Ut tristique, elit eu malesuada porttitor, dui metus ultrices mauris, a consectetur ante orci ac nisi. Ut sed lacus non nibh eleifend feugiat ut quis elit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo. Integer convallis rutrum luctus. Nam lacinia ante sit amet pharetra pretium. Donec eu tempor orci. Cras imperdiet venenatis turpis, in facilisis lorem viverra sed. Quisque id sem viverra, fringilla tellus vel, placerat quam. Suspendisse risus lectus, semper non magna at, gravida viverra lorem. Integer in lacinia tortor. Aliquam tempus sollicitudin metus, at faucibus lorem condimentum a. Integer leo urna, molestie id convallis id, faucibus sed est. Proin dapibus, erat sed eleifend ultricies, enim est aliquam sapien, in tincidunt dui ipsum eget odio. Pellentesque varius tellus sed lobortis eleifend. In hac habitasse platea dictumst. Proin a justo luctus, mattis tortor eget, efficitur nisi. Ut tristique, elit eu malesuada porttitor, dui metus ultrices mauris, a consectetur ante orci ac nisi. Ut sed lacus non nibh eleifend feugiat ut quis elit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo. Integer convallis rutrum luctus. Nam lacinia ante sit amet pharetra pretium. Donec eu tempor orci. Cras imperdiet venenatis turpis, in facilisis lorem viverra sed. Quisque id sem viverra, fringilla tellus vel, placerat quam. Suspendisse risus lectus, semper non magna at, gravida viverra lorem. Integer in lacinia tortor. Aliquam tempus sollicitudin metus, at faucibus lorem condimentum a. Integer leo urna, molestie id convallis id, faucibus sed est. Proin dapibus, erat sed eleifend ultricies, enim est aliquam sapien, in tincidunt dui ipsum eget odio. Pellentesque varius tellus sed lobortis eleifend. In hac habitasse platea dictumst. Proin a justo luctus, mattis tortor eget, efficitur nisi. Ut tristique, elit eu malesuada porttitor, dui metus ultrices mauris, a consectetur ante orci ac nisi. Ut sed lacus non nibh eleifend feugiat ut quis elit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo. Integer convallis rutrum luctus. Nam lacinia ante sit amet pharetra pretium. Donec eu tempor orci. Cras imperdiet venenatis turpis, in facilisis lorem viverra sed. Quisque id sem viverra, fringilla tellus vel, placerat quam. Suspendisse risus lectus, semper non magna at, gravida viverra lorem. Integer in lacinia tortor. Aliquam tempus sollicitudin metus, at faucibus lorem condimentum a. Integer leo urna, molestie id convallis id, faucibus sed est. Proin dapibus, erat sed eleifend ultricies, enim est aliquam sapien, in tincidunt dui ipsum eget odio. Pellentesque varius tellus sed lobortis eleifend. In hac habitasse platea dictumst. Proin a justo luctus, mattis tortor eget, efficitur nisi. Ut tristique, elit eu malesuada porttitor, dui metus ultrices mauris, a consectetur ante orci ac nisi. Ut sed lacus non nibh eleifend feugiat ut quis elit.</p>
+                <label class="sections-header">Choose a category:
+                    <select name="category" id="select-category">
+                        <option value="All">All</option>
+                        <option value="Philosophy">Philosophy</option>
+                        <option value="Psychology">Psychology</option>
+                        <option value="Literature">Literature</option>
+                    </select>
+                </label>
+                <br>
+                <label class="sections-header">Enter search term:
+                    <input name="query" type="text" id="search-keyword" onkeyup="queryFilter()">
+                </label>
             </div>
+            <div id="item-sections">
+                <h1 class="sections-header">Items</h1>
+                <div id="item-boxes">
+                    <!-- 여기에 자동으로 상품별 section이 생성됨. 이때 section의 className은 item-box. -->
+                </div>
+            </div>
+            <!-- <div id="intro-sections">
+                <h1 class="sections-header">Introduction</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo. Integer convallis rutrum luctus. Nam lacinia ante sit amet pharetra pretium. Donec eu tempor orci. Cras imperdiet venenatis turpis, in facilisis lorem viverra sed. Quisque id sem viverra, fringilla tellus vel, placerat quam. Suspendisse risus lectus, semper non magna at, gravida viverra lorem. Integer in lacinia tortor. Aliquam tempus sollicitudin metus, at faucibus lorem condimentum a. Integer leo urna, molestie id convallis id, faucibus sed est. Proin dapibus, erat sed eleifend ultricies, enim est aliquam sapien, in tincidunt dui ipsum eget odio. Pellentesque varius tellus sed lobortis eleifend. In hac habitasse platea dictumst. Proin a justo luctus, mattis tortor eget, efficitur nisi. Ut tristique, elit eu malesuada porttitor, dui metus ultrices mauris, a consectetur ante orci ac nisi. Ut sed lacus non nibh eleifend feugiat ut quis elit.</p>
+            </div> -->
         </main>
     </body>
 </html>
