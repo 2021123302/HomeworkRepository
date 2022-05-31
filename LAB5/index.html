@@ -31,7 +31,7 @@
             var result =
             `<div class="item_header">${obj.itemHeader}</div>
             <div class="item-sub-header">By ${obj.itemSubHeader}</div>
-            <div class="item-sub-header">${obj.category}</div>
+            <div class="category">${obj.category}</div>
             <img src="${obj.img}" alt="${obj.itemSubHeader} '${obj.itemHeader}'">`;
             return result;
         };
@@ -56,6 +56,17 @@
                 }
             }
         };
+
+        function categoryFilter() {
+            const target = document.getElementById("select-category").value;
+            var boxes = document.getElementsByClassName("item-box");
+            for(let i = 0; i < boxes.length; i++) {
+                var query = boxes[i].getElementsByClassName("category")[0].innerHTML;
+                if(query != target){
+                    boxes[i].style.display = "none";
+                }
+            }
+        };
     </script>
     <body>
         <header> <!-- Header text; ID: header-text-->
@@ -73,7 +84,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo. Integer convallis rutrum luctus. Nam lacinia ante sit amet pharetra pretium. Donec eu tempor orci. Cras imperdiet venenatis turpis, in facilisis lorem viverra sed. Quisque id sem viverra, fringilla tellus vel, placerat quam. Suspendisse risus lectus, semper non magna at, gravida viverra lorem. Integer in lacinia tortor. Aliquam tempus sollicitudin metus, at faucibus lorem condimentum a. Integer leo urna, molestie id convallis id, faucibus sed est. Proin dapibus, erat sed eleifend ultricies, enim est aliquam sapien, in tincidunt dui ipsum eget odio. Pellentesque varius tellus sed lobortis eleifend. In hac habitasse platea dictumst. Proin a justo luctus, mattis tortor eget, efficitur nisi. Ut tristique, elit eu malesuada porttitor, dui metus ultrices mauris, a consectetur ante orci ac nisi. Ut sed lacus non nibh eleifend feugiat ut quis elit.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus viverra tellus viverra commodo. Integer convallis rutrum luctus. Nam lacinia ante sit amet pharetra pretium. Donec eu tempor orci. Cras imperdiet venenatis turpis, in facilisis lorem viverra sed. Quisque id sem viverra, fringilla tellus vel, placerat quam. Suspendisse risus lectus, semper non magna at, gravida viverra lorem. Integer in lacinia tortor. Aliquam tempus sollicitudin metus, at faucibus lorem condimentum a. Integer leo urna, molestie id convallis id, faucibus sed est. Proin dapibus, erat sed eleifend ultricies, enim est aliquam sapien, in tincidunt dui ipsum eget odio. Pellentesque varius tellus sed lobortis eleifend. In hac habitasse platea dictumst. Proin a justo luctus, mattis tortor eget, efficitur nisi. Ut tristique, elit eu malesuada porttitor, dui metus ultrices mauris, a consectetur ante orci ac nisi. Ut sed lacus non nibh eleifend feugiat ut quis elit.</p>
                 <label class="sections-header">Choose a category:
-                    <select name="category" id="select-category">
+                    <select name="category" id="select-category" onchange="categoryFilter()">
                         <option value="All">All</option>
                         <option value="Philosophy">Philosophy</option>
                         <option value="Psychology">Psychology</option>

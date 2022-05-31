@@ -111,6 +111,12 @@ main {
     color: grey;
 }
 
+.category {
+    width: 100%;
+    text-align: center;
+    color: grey;
+}
+
 .item-box > img {
     width: 70%;
 }
