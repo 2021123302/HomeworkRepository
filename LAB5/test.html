@@ -5,9 +5,34 @@
         <meta charset="utf-8">
     </head>
     <script>
-        
+        // loadProduct: count를 넘겨주면 count번째 product의 section을 load해줌.
+        function loadProduct(count) {
+            fetch('https://2021123302.github.io/HomeworkRepository/LAB5/product.json')
+            .then(response => response.json())
+            .then(products => {
+                const newDiv = document.createElement('div');
+                newDiv.innerHTML = createSectionHTML(products[count]);
+                document.querySelector("#products").append(newDiv);
+            })
+        };
+
+        // createSectionHTML: product obj를 넘겨주면 그 section의 HTML 코드를 제작해 리턴함.
+        // loadProduct 함수에서 필요로 함.
+        function createSectionHTML(obj) {
+            return `<img src="${obj.img}">`;
+        };
+
+        loadProduct(3);
+        var count = 0;
+        window.onscroll = () => {
+            if(window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                loadProduct(count);
+                count++;
+            }
+        }
     </script>
     <body>
-        
+        <p>Hello</p>
+        <div id="products"></div>
     </body>
 </html>
