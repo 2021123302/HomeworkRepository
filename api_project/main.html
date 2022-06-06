@@ -55,7 +55,46 @@
             </ul>
         </nav>
 
-        <!-- -------------여기서부터는 페이지마다 달라지는 부분------------- -->
+        <!-- 페이지 설명 -->
+        <h1>내 정보</h1>
+        <h2>입력된 정보를 바탕으로 확률 예측이 계산되니 정확하게 기입해주시기 바랍니다.</h2>
+
+        <!-- 개인정보 입력받는 form -->
+        <form method="post" action="#">
+            <p><label>제1전공
+                <select name="myMajor">
+                    <option value="문과대학">문과대학</option>
+                    <option value="상경대학">상경대학</option>
+                    <option value="경영대학">경영대학</option>
+                    <option value="이과대학">이과대학</option>
+                    <option value="공과대학">공과대학</option>
+                    <option value="생명시스템대학">생명시스템대학</option>
+                    <option value="인공지능융합대학">인공지능융합대학</option>
+                    <option value="신과대학">신과대학</option>
+                    <option value="사회과학대학">사회과학대학</option>
+                    <option value="음악대학">음악대학</option>
+                    <option value="교육과학대학">교육과학대학</option>
+                    <option value="생활과학대학">생활과학대학</option>
+                    <option value="언더우드국제대학">언더우드국제대학</option>
+                    <option value="약학대학">약학대학</option>
+                    <option value="간호대학">간호대학</option>
+                    <option value="글로벌인재대학">글로벌인재대학</option>
+                </select>
+            </label></p>
+            <p><label>졸업 이수 학점
+                <input name="myFullCreditsForGrad" type="number" min="1" max="200" step="0.5">
+            </label></p>
+            <p><label>지금까지 이수한 학기 수
+                <input name="mySemesters" type="number" min="1" max="100" step="1">
+            </label></p>
+            <p><label>졸업신청 여부
+                <input name="myAppliedForGrad" value="true" type="checkbox">
+            </label></p>
+            <div id="credits-per-semester"></div>
+
+            <input type="submit" value="완료 >">
+        </form>
+        <div id="demo"></div>
 
         <!-- 페이지 설명 -->
         <h1>내 시간표</h1>
@@ -76,6 +115,7 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- 여기 내용은 <script>에서 js로 채워넣었음 -->
             </tbody>
         </table>
 
@@ -83,7 +123,7 @@
         <button id="cs-panel-button">컴퓨터과학과 전공 과목 추가</button>
         <button id="others-panel-button">기타 과목 추가</button>
 
-        <!-- 컴퓨터과학과 전공 과목 추가하는 panel -->
+        <!-- 컴퓨터과학과 전공 과목 추가하는 panel; #cs-panel -->
         <div id="cs-panel">
             <form method="post" action="#">
                 <p><label>교수/과목명
@@ -108,7 +148,7 @@
             </div>
         </div>
 
-        <!-- 기타 과목 추가하는 panel -->
+        <!-- 기타 과목 추가하는 panel; #others-panel -->
         <div id="others-panel">
             <form method="post" action="#">
                 <p><label>교수
@@ -125,20 +165,63 @@
         </div>
     </body>
     <script>
+        // '내 정보' > '지금까지 이수한 학기 수(mySemesters)' 입력값에 따라서 '학기별 수강 학점(myCreditsAcquired#_#)' 입력란을 자동으로 생성해주는 코드
+        // 이도엽 작성
+        document.querySelector("input[name='mySemesters']").onchange = function(){
+            const numOfSemester = parseInt(this.value);
+            const targetElem = document.querySelector("#credits-per-semester");
+            generateInputs(numOfSemester, targetElem);
+        }
+        function generateInputs(numOfSemester, targetElem) {
+            const y = Math.floor((numOfSemester + 1) / 2);
+            const s = 2 - numOfSemester % 2;
+            var result = "<h3>학기별 수강 학점</h3>";
+            for(let i = 1; i <= y; i++) {
+                if(i < y) {
+                    for(let j = 1; j <= 2; j++) {
+                        var input = `
+                        <p><label>${i}학년 ${j}학기
+                        <input name="myCreditsAcquired${i}_${j}" type="number" min="0" max="30" step="0.5">
+                        </label></p>`;
+                        result += input;
+                    }
+                }
+                else {
+                    for(let j = 1; j <= s; j++) {
+                        var input = `
+                        <p><label>${i}학년 ${j}학기
+                        <input name="myCreditsAcquired${i}_${j}" type="number" min="0" max="30" step="0.5">
+                        </label></p>`;
+                        result += input;
+                    }
+                }
+            }
+            targetElem.innerHTML = result;
+        }
+        // 코드 끝
+
+
+
+        // #cs-panel과 #others-panel을 버튼 onclick 이벤트 발생에 따라 보이거나 숨기게 해주는 코드
+        // 이도엽 작성
         document.querySelector("#cs-panel-button").onclick = function(){
             document.querySelector("#cs-panel").style.display = "block";
         }
         document.querySelector("#cs-panel input[type='submit']").onclick = function(){
             document.querySelector("#cs-panel").style.display = "none";
         }
-
         document.querySelector("#others-panel-button").onclick = function(){
             document.querySelector("#others-panel").style.display = "block";
         }
         document.querySelector("#others-panel input[type='submit']").onclick = function(){
             document.querySelector("#others-panel").style.display = "none";
         }
+        // 코드 끝
 
+
+
+        // #timetable 테이블의 24개 row를 자동으로 생성해주는 코드
+        // 이도엽 작성
         const hrsInDay = 24;
         var result = "";
         for(let i = 0; i < hrsInDay; i++) {
@@ -156,5 +239,6 @@
             result += x;
         }
         document.querySelector("#timetable tbody").innerHTML = result;
+        // 코드 끝
     </script>
 </html>
