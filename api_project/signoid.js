@@ -42,6 +42,46 @@ var grad_is_NAY; //평점is NAY
 var MajorIsIncluded = new Boolean(false); //전공자정원포함여부
 
 
+
+
+//지환님 코드
+var userCode = 0;
+let UCA = [];
+
+function makeCode() {
+    userCode = UCA.join('');
+}
+function kakaoActive() {
+    makeCode()
+    sendLinkDefault()
+}
+function sendLinkDefault() {
+    Kakao.init('9c2d3d10a2d0c8cd14dd385207763674')
+    Kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+            title: '인프 시간표',
+            description: '코드: ' + userCode,
+            imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/95/YonseiUniversityEmblem.svg/1200px-YonseiUniversityEmblem.svg.png',
+            link: {
+                mobileWebUrl: 'https://developers.kakao.com',
+                webUrl: 'https://developers.kakao.com'
+            }
+        },
+        buttons: [
+            {
+                title: '웹으로 보기',
+                link: {
+                    mobileWebUrl: 'https://developers.kakao.com',
+                    webUrl: 'https://developers.kakao.com'
+                }
+            },
+        ]
+    })
+}
+// 여기까지 지환님 코드
+
+
 function signoidReady(){
     signoidReady1=11.63  //intercept를 기본으로 더합니다.
 
@@ -187,6 +227,7 @@ function addCoursetoTable(){
                                       document.getElementById("Wed2").style.backgroundColor = 'rgb(102, 102, 153)';
                                       document.getElementById("Wed3").innerText ="이경호/인터넷프로그래밍";
                                       document.getElementById("Wed3").style.backgroundColor = 'rgb(102, 102, 153)';
+                                      UCA.push("07");
                                       courseScedule.CSI2109.day=['Mon2', 'Wed2','Wed3'];
                                       courseScedule.CSI2109.professorName="이경호";
                                       courseScedule.CSI2109.courseName="인터넷프로그래밍";
@@ -199,6 +240,7 @@ function addCoursetoTable(){
                                     document.getElementById("Wed11").style.backgroundColor = 'rgb(102, 102, 102)';   
                                     document.getElementById("Wed12").innerText ="이수경/이산구조";
                                     document.getElementById("Wed12").style.backgroundColor = 'rgb(102, 102, 102)'; 
+                                    UCA.push("04");
                                     courseScedule.CSI2101.day=['Tue3', 'Wed11','Wed12'];
                                     courseScedule.CSI2101.professorName="이수경";
                                     courseScedule.CSI2101.courseName="이산구조";
@@ -211,6 +253,7 @@ function addCoursetoTable(){
                                document.getElementById("Thu6").style.backgroundColor = 'rgb(102, 102, 000)'; 
                                document.getElementById("Thu7").innerText ="황성재/자료구조";
                                document.getElementById("Thu7").style.backgroundColor = 'rgb(102, 102, 000)'; 
+                               UCA.push("05");
                                courseScedule.CSI2103.day=['Tue6','Thu6', 'Thu7'];
                                courseScedule.CSI2103.professorName="황성재";
                                courseScedule.CSI2103.courseName="자료구조";
@@ -223,6 +266,7 @@ function addCoursetoTable(){
                                 document.getElementById("Wed3").style.backgroundColor = 'rgb(102, 102, 051)';   
                                 document.getElementById("Wed4").innerText ="차호정/운영체제";
                                 document.getElementById("Wed4").style.backgroundColor = 'rgb(102, 102, 051)'; 
+                                UCA.push("08");
                                 courseScedule.CSI3101.day=['Mon8','Wed3', 'Wed4'];
                                 courseScedule.CSI3101.professorName="차호정";
                                 courseScedule.CSI3101.courseName="운영체제";
@@ -234,7 +278,8 @@ function addCoursetoTable(){
                                     document.getElementById("Thu6").innerText ="김영석/컴퓨터아키텍쳐"; 
                                     document.getElementById("Thu6").style.backgroundColor = 'rgb(102, 102, 204)';  
                                     document.getElementById("Thu7").innerText ="김영석/컴퓨터아키텍쳐";
-                                    document.getElementById("Thu7").style.backgroundColor = 'rgb(102, 102, 204)'; 
+                                    document.getElementById("Thu7").style.backgroundColor = 'rgb(102, 102, 204)';
+                                    UCA.push("10"); 
                                     courseScedule.CSI3102.day=['Tue8','Thu6', 'Thu7'];
                                     courseScedule.CSI3102.professorName="김영석";
                                     courseScedule.CSI3102.courseName="컴퓨터아키텍쳐";
@@ -247,6 +292,7 @@ function addCoursetoTable(){
                                         document.getElementById("Tue9").style.backgroundColor = 'rgb(102, 102, 255)';  
                                         document.getElementById("Thu11").innerText ="이인권/객체지향프로그래밍";
                                         document.getElementById("Thu11").style.backgroundColor = 'rgb(102, 102, 255)';
+                                        UCA.push("01");
                                         courseScedule.CSI2102.day=['Tue8','Tue9', 'Thu11'];
                                         courseScedule.CSI2102.professorName="이인권";
                                         courseScedule.CSI2102.courseName="객체지향프로그래밍";
@@ -261,6 +307,7 @@ function addCoursetoTable(){
                                             document.getElementById("Thu9").style.backgroundColor = 'rgb(102, 153, 102)';
                                             document.getElementById("Thu10").innerText ="벅스텔러번트/컴퓨터프로그래밍";
                                             document.getElementById("Thu10").style.backgroundColor = 'rgb(102, 153, 102)';
+                                            UCA.push("02");
                                             courseScedule.CAC1100.day=['Thu5','Thu6', 'Thu9','Thu10'];
                                             courseScedule.CAC1100.professorName="벅스텔러번트";
                                             courseScedule.CAC1100.courseName="컴퓨터프로그래밍";
@@ -275,6 +322,7 @@ function addCoursetoTable(){
                                             document.getElementById("Thu9").style.backgroundColor = 'rgb(102, 204, 102)';
                                             document.getElementById("Thu10").innerText ="이병주/컴퓨터프로그래밍";
                                             document.getElementById("Thu10").style.backgroundColor = 'rgb(102, 204, 102)';
+                                            UCA.push("03");
                                             courseScedule.CAC1100.day=['Thu5','Thu6', 'Thu9','Thu10'];
                                             courseScedule.CAC1100.professorName="이병주";
                                             courseScedule.CAC1100.courseName="컴퓨터프로그래밍"; 
@@ -287,6 +335,7 @@ function addCoursetoTable(){
                                         document.getElementById("Fri6").style.backgroundColor = 'rgb(102, 255, 102)';  
                                         document.getElementById("Fri7").innerText ="최종현/컴퓨터과학입문";
                                         document.getElementById("Fri7").style.backgroundColor = 'rgb(102, 255, 102)';
+                                        UCA.push("06");
                                         courseScedule.CSI2106.day=['Wed8','Fri6', 'Fri7'];
                                         courseScedule.CSI2106.professorName="최종현";
                                         courseScedule.CSI2106.courseName="컴퓨터과학입문";
@@ -299,6 +348,7 @@ function addCoursetoTable(){
                                         document.getElementById("Tue3").style.backgroundColor = 'rgb(102, 000, 102)';  
                                         document.getElementById("Thu2").innerText ="이경우/컴퓨터아키텍쳐";
                                         document.getElementById("Thu2").style.backgroundColor = 'rgb(102, 000, 102)';
+                                        UCA.push("09");
                                         courseScedule.CSI3102.day=['Tue2','Tue3', 'Thu2'];
                                         courseScedule.CSI3102.professorName="이경우";
                                         courseScedule.CSI3102.courseName="컴퓨터아키텍쳐";
@@ -311,6 +361,7 @@ function addCoursetoTable(){
                                         document.getElementById("Tue7").style.backgroundColor = 'rgb(102, 051, 102)'; 
                                         document.getElementById("Thu12").innerText ="이인권/컴퓨터그래픽스";
                                         document.getElementById("Thu12").style.backgroundColor = 'rgb(102, 051, 102)';
+                                        UCA.push("11");
                                         courseScedule.CSI4105.day=['Tue6','Tue7', 'Thu12'];
                                         courseScedule.CSI4105.professorName="이인권";
                                         courseScedule.CSI4105.courseName="컴퓨터그래픽스";
@@ -323,6 +374,7 @@ function addCoursetoTable(){
                                         document.getElementById("Mon7").style.backgroundColor = 'rgb(102, 051, 153)';
                                         document.getElementById("Wed6").innerText ="조성배/인공지능";
                                         document.getElementById("Wed6").style.backgroundColor = 'rgb(102, 051, 153)';
+                                        UCA.push("12");
                                         courseScedule.CSI4108.day=['Mon6','Mon7', 'Wed6'];
                                         courseScedule.CSI4108.professorName="조성배";
                                         courseScedule.CSI4108.courseName="인공지능";
@@ -335,6 +387,7 @@ function addCoursetoTable(){
                                         document.getElementById("Fri7").style.backgroundColor = 'rgb(102, 051, 204)';
                                         document.getElementById("Fri8").innerText ="소프트웨어종합설계";
                                         document.getElementById("Fri8").style.backgroundColor = 'rgb(102, 051, 204)';
+                                        UCA.push("13");
                                         courseScedule.CSI4101.day=['Wed9','Fri7', 'Fri8'];
                                         courseScedule.CSI4101.professorName="";
                                         courseScedule.CSI4101.courseName="소프트웨어종합설계";
@@ -347,6 +400,7 @@ function addCoursetoTable(){
                                         document.getElementById("Mon7").style.backgroundColor = 'rgb(102, 051, 255)';  
                                         document.getElementById("Wed6").innerText ="송도경/정보보호";
                                         document.getElementById("Wed6").style.backgroundColor = 'rgb(102, 051, 255)';
+                                        UCA.push("14");
                                         courseScedule.CSI4109.day=['Mon6','Mon7', 'Wed6'];
                                         courseScedule.CSI4109.professorName="이인권송도경";
                                         courseScedule.CSI4109.courseName="정보보호";
@@ -359,6 +413,7 @@ function addCoursetoTable(){
                                         document.getElementById("Tue4").style.backgroundColor = 'rgb(102, 051, 000)';
                                         document.getElementById("Thu3").innerText ="김선주/컴퓨터비전";
                                         document.getElementById("Thu3").style.backgroundColor = 'rgb(102, 051, 000)';
+                                        UCA.push("15");
                                         courseScedule.CSI4116.day=['Tue3','Tue4', 'Thu3'];
                                         courseScedule.CSI4116.professorName="김선주";
                                         courseScedule.CSI4116.courseName="컴퓨터비전";
@@ -371,6 +426,7 @@ function addCoursetoTable(){
                                         document.getElementById("Wed2").style.backgroundColor = 'rgb(102, 051, 051)';
                                         document.getElementById("Wed3").innerText ="조성배/데이타마이닝";
                                         document.getElementById("Wed3").style.backgroundColor = 'rgb(102, 051, 051)';
+                                        UCA.push("16");
                                         courseScedule.CSI4117.day=['Mon2','Wed2', 'Wed3'];
                                         courseScedule.CSI4117.professorName="조성배";
                                         courseScedule.CSI4117.courseName="데이터마이닝";
@@ -383,6 +439,7 @@ function addCoursetoTable(){
                                                     document.getElementById("Wed8").style.backgroundColor = 'rgb(153, 000, 000)';
                                                     document.getElementById("Fri6").innerText ="이진호/멀티코어및GPU프로그래밍";
                                                     document.getElementById("Fri6").style.backgroundColor = 'rgb(153, 000, 000)';
+                                                    UCA.push("17");
                                                     courseScedule.CSI4119.day=['Wed7','Wed8', 'Fri6'];
                                                     courseScedule.CSI4119.professorName="이진호";
                                                     courseScedule.CSI4119.courseName="멀티코어및GPU프로그래밍";
@@ -396,6 +453,7 @@ function addCoursetoTable(){
                                         document.getElementById("Thu4").style.backgroundColor = 'rgb(255, 102, 102)';  
                                         document.getElementById("Thu5").innerText ="박노성/기계학습";
                                         document.getElementById("Thu5").style.backgroundColor = 'rgb(255, 102, 102)';
+                                        UCA.push("18");
                                         courseScedule.CSI4120.day=['Tue5','Thu4', 'Thu5'];
                                         courseScedule.CSI4120.professorName="박노성";
                                         courseScedule.CSI4120.courseName="기계학습";
@@ -408,6 +466,7 @@ function addCoursetoTable(){
                                         document.getElementById("Tue7").style.backgroundColor = 'rgb(051, 102, 153)';
                                         document.getElementById("Thu6").innerText ="여진영/빅데이터";
                                         document.getElementById("Thu6").style.backgroundColor = 'rgb(051, 102, 153)';
+                                        UCA.push("19");
                                         courseScedule.CSI4121.day=['Tue6','Tue7', 'Thu6'];
                                         courseScedule.CSI4121.professorName="여진영";
                                         courseScedule.CSI4121.courseName="빅데이터";
@@ -429,3 +488,5 @@ function signoid(signoidrReady1,signoidReady2){       //시그노이드 값을 �
     console.log(signoidt);
     return signoidt;
 }
+
+

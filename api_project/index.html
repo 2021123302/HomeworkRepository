@@ -48,8 +48,10 @@
         <meta name="google-signin-client_id" content="570379180403-ajdf8apkn7cof1ch0gq8h7jl13v3jfhp.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+        <!--지환씨 카카오부분-->
+        <script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
         <!--sinoid.js참조 추가-->
-        <script type="text/javascript" src="signoid.js"></script>
+       
         <!--(1)여기까지-->
 
     </head>
@@ -66,11 +68,13 @@
         
         <!--구자성 변경부분 (2)-->
         <!-- <input id= ~ 구글캘린더 연동"> 부분 주석처리 후 구글 로그인 버튼 추가-->
+        <!-- 카카오 버튼으로 변경-->
         <nav>
             <ul>
                 <div class="g-signin2" style="display:inline;" data-width="340" data-height="60"  data-onsuccess="onSignIn" data-theme="dark"></div>
+                <input id="share-kakao" type="button" onClick="kakaoActive();" value="카카오톡으로 공유" />
             <!--<input id="integrate-googleCal" type="button" onclick="" value="구글 캘린더 연동">-->
-                <input id="share-kakao" type="button" onClick="" value="카카오톡으로 공유" />
+            <!--<input id="share-kakao" type="button" onClick="" value="카카오톡으로 공유" /> -->
             </ul>
         </nav>
         <!--구글로그인 스크립트 추가-->
@@ -358,4 +362,5 @@
         // 여기까지(7)
         
     </script>
+    <script type="text/javascript" src="signoid.js"></script>
 </html>
